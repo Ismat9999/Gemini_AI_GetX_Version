@@ -1,5 +1,5 @@
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:geminigetx/data/models/message_model.dart';
 import 'package:geminigetx/data/repositories/gemini_talk_repository_impl.dart';
 import 'package:geminigetx/domain/usecase/gemini_text_and_image_usecase.dart';
