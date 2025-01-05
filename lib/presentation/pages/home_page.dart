@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import '../controller/home_controller.dart';
 import '../widgets/item_gemini_message.dart';
 import '../widgets/item_user_message.dart';
@@ -68,7 +69,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                         _controller.isLoading
               ? Center(
-                          child: CircularProgressIndicator(),
+                          child:Container(
+                            width: 40,
+                            height: 40,
+                            child: Lottie.asset("assets/lotties/lottie.json"),
+                          ),
                         ): SizedBox.shrink(),
                     ],
                   ),

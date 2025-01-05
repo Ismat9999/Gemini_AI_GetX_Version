@@ -1,7 +1,14 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:geminigetx/data/models/message_model.dart';
+
+final FlutterTts flutterTts = FlutterTts();
+Future<void> speak(String text) async {
+  await flutterTts.setLanguage("en-US");
+  await flutterTts.setSpeechRate(0.60);
+  await flutterTts.speak(text);
+}
 
 Widget itemOfGeminiMessage(MessageModel message){
   return Container(
@@ -18,9 +25,14 @@ Widget itemOfGeminiMessage(MessageModel message){
               width: 30,
               child: Image.asset("assets/images/gemini_icon.png"),
             ),
-            Icon(
-              Icons.volume_up, color: Colors.white70,
-            )
+            GestureDetector(
+              onTap: (){
+                speak(message.message!);
+              },
+              child: Icon(
+                Icons.volume_up, color: Colors.white70,
+              ),
+            ),
           ],
         ),
         Container(
@@ -31,3 +43,5 @@ Widget itemOfGeminiMessage(MessageModel message){
     ),
   );
 }
+
+
