@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:geminigetx/core/services/utils_service.dart';
 import 'package:geminigetx/data/models/message_model.dart';
 
-final FlutterTts flutterTts = FlutterTts();
-Future<void> speak(String text) async {
-  await flutterTts.setLanguage("en-US");
-  await flutterTts.setSpeechRate(0.60);
-  await flutterTts.speak(text);
-}
-
+// final FlutterTts flutterTts = FlutterTts();
+// Future<void>speak(String text) async {
+//   await flutterTts.setLanguage("en-US");
+//   await flutterTts.setSpeechRate(0.65);
+//   await flutterTts.speak(text);
+// }
 Widget itemOfGeminiMessage(MessageModel message){
   return Container(
     width: double.infinity,
@@ -27,7 +27,7 @@ Widget itemOfGeminiMessage(MessageModel message){
             ),
             GestureDetector(
               onTap: (){
-                speak(message.message!);
+                Utils.speak(message.message!, FlutterTts());
               },
               child: Icon(
                 Icons.volume_up, color: Colors.white70,

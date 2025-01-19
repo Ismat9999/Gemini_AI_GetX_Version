@@ -10,6 +10,7 @@ class Utils {
     final picker= ImagePicker();
     final pickedFile= await picker.pickImage(source: ImageSource.gallery);
 
+
     if (pickedFile == null){
       return "";
     }
@@ -19,13 +20,13 @@ class Utils {
     final base64Image= base64Encode(imageBytes);
     return base64Image;
   }
-  // final FlutterTts flutterTts = FlutterTts();
-  //
-  // Future<void> speak(String text) async {
-  //   await flutterTts.setLanguage("en-US");
-  //   await flutterTts.setSpeechRate(0.65);
-  //   await flutterTts.speak(text);
-  // }
+  final FlutterTts flutterTts = FlutterTts();
+   static void speak(String text, FlutterTts flutterTts) {
+     flutterTts.setLanguage("en-US");
+     flutterTts.setSpeechRate(0.65);
+     flutterTts.speak(text);
+  }
 }
+
 
 
